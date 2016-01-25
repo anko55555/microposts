@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_message, only: [:edit, :update]
-  before_filter :correct_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :show]
+  before_action :correct_user, only: [:edit, :update]
   
   
   def show 
-   @user = User.find(params[:id])
   end
  
   def new
@@ -26,9 +25,9 @@ class UsersController < ApplicationController
  
  
   def update # 追加
-    if @message.update(message_params)
+    if @user.update(user_params)
       # 保存に成功した場合はトップページへリダイレクト
-      redirect_to root_path , notice: 'プロフィールを編集しました'
+      redirect_to root_path , notice: 'your profile updated'
      else
       # 保存に失敗した場合は編集画面へ戻す
       render 'edit'
@@ -36,6 +35,10 @@ class UsersController < ApplicationController
   end
 
   private
+  
+  def set_user
+    @user = User.find(params[:id])
+  end
   
   def correct_user
     @user = User.find(params[:id])

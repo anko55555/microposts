@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     has_secure_password
     
     # area
-    validates :area, presence: true, length: { maximum: 30 }
+    validates :area, presence: true, length: { maximum: 30 }, on: :update
     # profile
     validates :profile, length: { maximum: 500 }
 end
