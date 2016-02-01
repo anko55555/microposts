@@ -1,7 +1,29 @@
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-  <%= @user.email %>
-  <%= @user.area %>
-  <%= @user.profile %>
-</h1>
+<h1>プロフィール</h1>
+<!--  レスポンシブなテーブル　-->
+<div class="table-responsive">
+  <table class="table">
+   <tr>
+     <th><%= gravatar_for @user %></th>
+       
+   </tr>
+   <tr>
+     <th>名前</th>
+     <th><%= @user.name %></th>
+   </tr>
+   <tr>
+     <th>Eメール</th>
+     <th><%= @user.email %></th>
+   </tr>
+   <tr>
+     <th>地域</th>
+     <th><%= @user.area %></th>
+   </tr>
+   <tr>
+     <th>プロフィール</th>
+     <th><%= @user.profile %></th>
+   </tr>
+  </table>
+</div>
+
+
+
